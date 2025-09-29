@@ -1,0 +1,67 @@
+@use 'variables';
+@use 'mixins';
+@use 'header';
+@use 'about';
+@use 'projects';
+@use 'contact';
+@use 'footer';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: variables.$font-primary;
+    font-size: variables.$font-size-base;
+    color: variables.$text-color;
+    background: variables.$background-color;
+    line-height: 1.6;
+}
+
+.hero {
+    @include mixins.flex-center(column);
+    min-height: 100vh;
+    background: linear-gradient(135deg, variables.$primary-color, darken(variables.$primary-color, 10%));
+    color: variables.$white;
+    text-align: center;
+    padding: 0 variables.$spacing-md;
+
+    .hero-content {
+        max-width: 600px;
+
+        h1 {
+            font-size: variables.$font-size-xxl;
+            margin-bottom: variables.$spacing-md;
+        }
+
+        p {
+            font-size: variables.$font-size-lg;
+            margin-bottom: variables.$spacing-lg;
+        }
+    }
+
+    .highlight {
+        color: variables.$secondary-color;
+    }
+
+    .btn-primary {
+        @include mixins.button-style(variables.$secondary-color, variables.$white);
+        font-size: variables.$font-size-lg;
+        padding: variables.$spacing-md variables.$spacing-lg;
+    }
+}
+
+// ...existing code...
+.container {
+    @include mixins.container();
+}
+
+section {
+    scroll-margin-top: 80px;
+}

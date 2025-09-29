@@ -1,0 +1,56 @@
+@use 'variables';
+@use 'mixins';
+.header {
+    background-color: $white;
+    padding: $spacing-sm 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    
+    nav {
+        @include container();
+        @include flex-center(row);
+        justify-content: space-between;
+    }
+    
+    .logo h2 {
+        color: $primary-color;
+        margin: 0;
+    }
+    
+    .nav-list {
+    display: none;
+    list-style: none;
+    gap: variables.$spacing-lg;
+    background: variables.$white;
+    border-radius: variables.$border-radius;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: variables.$spacing-sm variables.$spacing-md;
+        
+        @include respond-to($breakpoint-tablet) {
+            display: flex;
+        }
+        
+        a {
+            text-decoration: none;
+            color: variables.$text-color;
+            font-weight: 500;
+            transition: variables.$transition;
+            
+            &:hover {
+                color: variables.$primary-color;
+            }
+        }
+    }
+    
+    .menu-toggle {
+        display: block;
+            font-size: variables.$font-size-xl;
+        cursor: pointer;
+        
+        @include respond-to($breakpoint-tablet) {
+            display: none;
+        }
+    }
+}

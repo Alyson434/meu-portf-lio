@@ -1,0 +1,33 @@
+@use 'variables';
+@use 'mixins';
+
+.footer {
+    background-color: variables.$primary-color;
+    color: variables.$white;
+    padding: variables.$spacing-lg 0;
+    text-align: center;
+
+    .container {
+        @include mixins.container();
+    }
+
+    .footer-content {
+        @include mixins.flex-center(column);
+        gap: variables.$spacing-md;
+    }
+
+    .social-links {
+        display: flex;
+        gap: variables.$spacing-md;
+
+        a {
+            color: variables.$white;
+            font-size: variables.$font-size-xl;
+            transition: variables.$transition;
+
+            &:hover {
+                color: variables.$gray-light;
+            }
+        }
+    }
+}

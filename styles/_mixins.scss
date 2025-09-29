@@ -1,0 +1,46 @@
+@mixin flex-center($direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin box-shadow($x: 0, $y: 4px, $blur: 8px, $color: rgb(46, 43, 43)) {
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin respond-to($breakpoint) {
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin button-style($bg-color: $primary-color, $text-color: $white) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: none;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: $transition;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    
+    @include box-shadow();
+    
+    &:hover {
+        background-color: darken($bg-color, 10%);
+        transform: translateY(-2px);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+@mixin container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+}

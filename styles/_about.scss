@@ -1,0 +1,63 @@
+@use 'variables';
+@use 'mixins';
+.about {
+    background-color: $white;
+    padding: $spacing-xl 0;
+    
+    .container {
+        @include container();
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: $spacing-lg;
+    }
+    
+    .about-content {
+        @include respond-to($breakpoint-tablet) {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: $spacing-lg;
+        }
+    }
+    
+    .about-text {
+        text-align: center;
+        
+            @include mixins.respond-to(variables.$breakpoint-tablet) {
+            text-align: left;
+        }
+        
+        p {
+                margin-bottom: variables.$spacing-md;
+            line-height: 1.6;
+        }
+    }
+    
+    .skills {
+        h3 {
+            text-align: center;
+            margin-bottom: $spacing-md;
+        }
+        
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+                gap: variables.$spacing-sm;
+            
+            li {
+                background-color: $gray-light;
+                padding: $spacing-sm;
+                border-radius: $border-radius;
+                text-align: center;
+                transition: $transition;
+                
+                &:hover {
+                    background-color: $primary-color;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

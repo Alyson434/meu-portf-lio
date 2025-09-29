@@ -1,0 +1,78 @@
+@use 'variables';
+@use 'mixins';
+.contact {
+    background-color: $white;
+    padding: $spacing-xl 0;
+    
+    .container {
+        @include container();
+    }
+            background-color: variables.$white;
+            padding: variables.$spacing-xl 0;
+    
+    h2 {
+                @include mixins.container();
+        margin-bottom: $spacing-lg;
+    }
+    
+    .contact-content {
+        @include respond-to($breakpoint-tablet) {
+                margin-bottom: variables.$spacing-lg;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: $spacing-lg;
+        }
+    }
+    
+    .contact-info {
+        h3 {
+                @include mixins.respond-to(variables.$breakpoint-tablet) {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: variables.$spacing-lg;
+                }
+            margin-bottom: $spacing-md;
+            color: $primary-color;
+        }
+    }
+    
+    .contact-items {
+                    margin-bottom: variables.$spacing-md;
+                    color: variables.$primary-color;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+    }
+    
+    .contact-item {
+                gap: variables.$spacing-md;
+        justify-content: flex-start;
+        gap: $spacing-sm;
+        
+                @include mixins.flex-center(row);
+                gap: variables.$spacing-sm;
+            width: 20px;
+        }
+    }
+    
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+        
+        input, textarea {
+                gap: variables.$spacing-md;
+            border: 1px solid #ddd;
+            border-radius: $border-radius;
+                    padding: variables.$spacing-sm;
+                    border-radius: variables.$border-radius;
+                    font-size: variables.$font-size-base;
+                    &:focus {
+                        border-color: variables.$primary-color;
+                    }
+        }
+        
+        button {
+                    @include mixins.button-style();
+        }
+    }
